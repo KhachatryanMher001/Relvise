@@ -1,18 +1,19 @@
-import React from 'react';
-import classes from './Company_Info.module.scss';
+import React from "react";
+import * as S from "./CompanyInfo.styled";
+import { Company_Info } from "../../../../../../../constansts/company_info/Company_Info";
 
-function Company_Info() {
-    let name = ["Home","Product","Pricing","Contact"];
-
-    return(
-        <div className={classes.burger_container}>
-            <ul  className={classes.list_burger}>
-                {name.map((names, index) => (
-                    <li key={"Company_info"} className={classes.list_li}><a href="#" className={classes.list_text}>{name}</a></li>
-                ))}
-            </ul>
-        </div>
-    )
+function CompanyInfo() {
+  return (
+    <S.CompanyInfoPage>
+      <S.CompanyContent>
+        {Company_Info.map((item) => (
+          <S.CompanyList key={item.name}>
+            <S.ListText href="#">{item.name}</S.ListText>
+          </S.CompanyList>
+        ))}
+      </S.CompanyContent>
+    </S.CompanyInfoPage>
+  );
 }
 
-export default Company_Info;
+export default CompanyInfo;
